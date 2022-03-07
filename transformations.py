@@ -115,16 +115,16 @@ class Equation:
             case 0, _:
                 y = other.m
                 x = (y - self.b) / self.m
-            case _, _:
-                mval, bval = self.m - other.m, other.b - self.b
-                x = bval / mval
-                y = self.m * x + self.b
             case _, 'undef':
                 x = self.m
                 y = other.m * x + other.b
             case _, 0:
                 y = self.m
                 x = (y - other.b) / other.m
+            case _, _:
+                mval, bval = self.m - other.m, other.b - self.b
+                x = bval / mval
+                y = self.m * x + self.b
         return Point(x, y)
 
 
