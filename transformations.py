@@ -183,7 +183,7 @@ class AllPoints:
 
     def rotate_all(self, args: tuple[Point, float]) -> None:
         print('rotations:')
-        pt_of_rot, ang = args[0], radians(args[1])
+        pt_of_rot, ang = args[0], radians(int(args[1]))
         for pt in self.allpoints:
             pt.x, pt.y = (pt_of_rot.x + ((pt.x - pt_of_rot.x) * cos(ang) - (pt.y - pt_of_rot.y) * sin(ang)),
                           pt_of_rot.y + ((pt.x - pt_of_rot.x) * sin(ang) + (pt.y - pt_of_rot.y) * cos(ang)))
@@ -208,7 +208,7 @@ class Inputs:
             type_dict = {
                 'T': (lambda x, y: Point(x, y)),
                 'r': (lambda e: Equation(e)),
-                'R': (lambda x, y, r: (Point(x, y), radians(r))),
+                'R': (lambda x, y, r: (Point(x, y), radians(int(r)))),
                 'D': (lambda x, y, s: (Point(x, y), float(s)))
             }
             this_oper = self.in_val()
